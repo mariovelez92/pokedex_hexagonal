@@ -1,4 +1,4 @@
-package com.example.pokedex_hexagonal.domain.exception;
+package com.example.pokedex_hexagonal.infrastructure.exception;
 
 public class NoDataFoundException extends RuntimeException {
     public NoDataFoundException() {

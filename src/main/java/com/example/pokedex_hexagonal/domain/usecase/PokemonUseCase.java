@@ -1,9 +1,6 @@
 package com.example.pokedex_hexagonal.domain.usecase;
 
 import com.example.pokedex_hexagonal.domain.api.IPokemonServicePort;
-import com.example.pokedex_hexagonal.domain.exception.NoDataFoundException;
-import com.example.pokedex_hexagonal.domain.exception.PokemonAlreadyExistsException;
-import com.example.pokedex_hexagonal.domain.exception.PokemonNotFoundException;
 import com.example.pokedex_hexagonal.domain.model.Pokemon;
 import com.example.pokedex_hexagonal.domain.spi.IPokemonPersistencePort;
 
@@ -19,24 +16,17 @@ public class PokemonUseCase implements IPokemonServicePort {
 
     @Override
     public void savePokemon(Pokemon pokemon) {
-        if (pokemonPersistencePort.getPokemon(pokemon.getNumber()).isPresent()) {
-            throw new PokemonAlreadyExistsException();
-        }
         pokemonPersistencePort.savePokemon(pokemon);
     }
 
     @Override
     public List<Pokemon> getAllPokemon() {
-        List<Pokemon> pokemonList = pokemonPersistencePort.getAllPokemon();
-        if (pokemonList.isEmpty()) {
-            throw new NoDataFoundException();
-        }
-        return pokemonList;
+        return pokemonPersistencePort.getAllPokemon();
     }
 
     @Override
     public Pokemon getPokemon(Long pokemonNumber) {
-        return pokemonPersistencePort.getPokemon(pokemonNumber).orElseThrow(PokemonNotFoundException::new);
+        return pokemonPersistencePort.getPokemon(pokemonNumber);
     }
 
     @Override
