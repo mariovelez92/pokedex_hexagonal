@@ -44,7 +44,7 @@ public class PokemonJpaAdapter implements IPokemonPersistencePort {
 
     @Override
     public void updatePokemon(Pokemon pokemon) {
-        pokemonEntityMapper.toEntity(pokemon);
+        pokemonRepository.save(pokemonEntityMapper.toEntity(pokemon));
     }
 
     @Override

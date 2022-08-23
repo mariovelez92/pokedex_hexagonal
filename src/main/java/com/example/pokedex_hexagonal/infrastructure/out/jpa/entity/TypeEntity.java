@@ -1,5 +1,6 @@
 package com.example.pokedex_hexagonal.infrastructure.out.jpa.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,17 +13,16 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "pokemon")
+@Table(name = "type")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-public class PokemonEntity {
+public class TypeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long number;
-    private String name;
-    private Long typeId;
+    private String firstType;
+    private String secondType;
 }
