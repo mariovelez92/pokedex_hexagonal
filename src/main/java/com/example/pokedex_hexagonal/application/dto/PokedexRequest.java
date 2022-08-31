@@ -10,4 +10,5 @@ public class PokedexRequest {
     private Long number;
     private String name;
     private Type types;
+    private String photo;
 }

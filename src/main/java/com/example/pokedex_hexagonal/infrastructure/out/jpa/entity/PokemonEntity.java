@@ -25,4 +25,5 @@ public class PokemonEntity {
     private Long number;
     private String name;
     private Long typeId;
+    private String photoId;
 }

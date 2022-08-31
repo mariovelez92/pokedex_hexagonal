@@ -6,12 +6,14 @@ public class Pokemon {
     private Long number;
     private String name;
     private Long typeId;
+    private String photoId;
 
-    public Pokemon(Long id, Long number, String name, Long typeId) {
+    public Pokemon(Long id, Long number, String name, Long typeId, String photoId) {
         this.id = id;
         this.number = number;
         this.name = name;
         this.typeId = typeId;
+        this.photoId = photoId;
     }
 
     public Long getId() {
@@ -44,5 +46,13 @@ public class Pokemon {
 
     public void setTypeId(Long typeId) {
         this.typeId = typeId;
+    }
+
+    public String getPhotoId() {
+        return photoId;
+    }
+
+    public void setPhotoId(String photoId) {
+        this.photoId = photoId;
     }
 }

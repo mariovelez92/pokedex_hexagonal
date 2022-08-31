@@ -1,6 +1,7 @@
 package com.example.pokedex_hexagonal.infrastructure.exceptionhandler;
 
 import com.example.pokedex_hexagonal.infrastructure.exception.NoDataFoundException;
+import com.example.pokedex_hexagonal.infrastructure.exception.PhotoNotFoundException;
 import com.example.pokedex_hexagonal.infrastructure.exception.PokemonAlreadyExistsException;
 import com.example.pokedex_hexagonal.infrastructure.exception.PokemonNotFoundException;
 import com.example.pokedex_hexagonal.infrastructure.exception.TypeNotFoundException;
@@ -43,5 +44,12 @@ public class ControllerAdvisor {
             TypeNotFoundException typeNotFoundException) {
         return ResponseEntity.status(HttpStatus.NOT_FOUND)
                 .body(Collections.singletonMap(MESSAGE, ExceptionResponse.TYPE_NOT_FOUND.getMessage()));
+    }
+
+    @ExceptionHandler(PhotoNotFoundException.class)
+    public ResponseEntity<Map<String, String>> handlePhotoNotFoundException(
+            PhotoNotFoundException photoNotFoundException) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                .body(Collections.singletonMap(MESSAGE, ExceptionResponse.PHOTO_NOT_FOUND.getMessage()));
     }
 }
